@@ -2,11 +2,157 @@
     <head>
         <title>Storytelling project</title>
         <script src="d3.js"></script>
+        <script src="https://unpkg.com/d3-simple-slider/build/d3-simple-slider.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div>My amazing page will goes here</div>
+        <script src="RadarChart.js"></script>
+        <script src="PieChart.js"></script>
+        <div class="center">
+            <h1>15 years of Uprising of Manchester City</h1>
+        </div>
+        <div class="container">
+                <div class="center row align-items-center">
+                    <div class="col-sm-2">
+                        <p>Year:</p>
+                        <p id="value3"></p>
+                    </div>
+                    <div class="col-sm">
+                        <div id="slider3"></div>
+                    </div>
+                </div>
+                <a id="setValue3" href="#">Reset</a>
+        </div>
+        <div id="wrapper">
+            <div class="left" id="piechart"></div>
+            <div class="right" id="chart"></div>
+        </div>
     </body>
     <script>
-        console.log(d3);
+    let store = {}
+    let data1 = {}
+    
+    function loadData() {
+        return Promise.all([
+            d3.csv("projectdata_Final.csv"),
+        ]).then(datasets => {
+            store.aggregatedData = datasets[0];
+            return store;
+        })
+    }
+
+    function preprocessData(aggregatedData){
+        console.log(aggregatedData);
+        // TODO: Use method processData written by Chintan
+        let result = aggregatedData.reduce((result, d) => {
+        result[d.Year] = {
+                "Attack": d.ShootingAccuracy,
+                "Defense": d.TackleSuccessRate,
+                "Midfield": d.PassAccuracy,
+                "pieData": [
+                    {
+                        name: "Wins", 
+                        value: parseInt(d.AwayWins) + parseInt(d.HomeWins),
+                        split: [
+                            {name: "Home", value: parseInt(d.HomeWins)},
+                            {name: "Away", value: parseInt(d.AwayWins)}
+                        ]
+                    },
+                    {
+                        name: "Draws", 
+                        value: parseInt(d.AwayDraw) + parseInt(d.HomeDraw),
+                        split: [
+                            {name: "Home", value: parseInt(d.HomeDraw)},
+                            {name: "Away", value: parseInt(d.AwayDraw)}
+                        ]
+                    },
+                    {
+                        name: "Loses", 
+                        value: parseInt(d.AwayLoses) + parseInt(d.HomeLoses),
+                        split: [
+                            {name: "Home", value: parseInt(d.HomeLoses)},
+                            {name: "Away", value: parseInt(d.AwayLoses)}
+                        ]
+                    }
+                ]
+            }
+        return result;
+        }, {})
+        console.log(result)
+        return result;
+    }
+
+    function formatAxisData(data, year){
+        var d=[
+            [
+                {axis:"Shot Accuracy",value:data[year]['Attack']},
+                {axis:"Tackle Accuracy",value:data[year]['Defense']},
+                {axis:"Pass Accuracy",value:data[year]['Midfield']},
+            ]
+        ]
+        return d
+    }
+
+    function loadSlider(){
+        var data3 = d3.range(0, 16).map(function (d) {
+            return new Date(2002 + d, 15, 3);
+        });
+
+        var temp = 0;
+
+        function test() {
+            return temp;
+        }
+
+        var slider3 = d3.sliderHorizontal()
+            .min(d3.min(data3))
+            .max(d3.max(data3))
+            .step(1000 * 60 * 60 * 24 * 365)
+            .width(600)
+            .tickFormat(d3.timeFormat('%Y'))
+            .tickValues(data3)
+            .on('onchange', val => {
+                d3.select("p#value3").text(d3.timeFormat('%Y')(val));
+                temp = d3.timeFormat('%Y')(val);
+                console.log("TEMP:"+temp);
+                year = (temp - 1)+ "/" + (temp.toString().slice(-2))
+                console.log(year)
+                updateCharts(year);
+            });
+
+        var group3 = d3.select("div#slider3").append("svg")
+            .attr("width", 1000)
+            .attr("height", 100)
+            .append("g")
+            .attr("transform", "translate(30,30)");
+
+        group3.call(slider3);
+
+        d3.select("p#value3").text(d3.timeFormat('%Y')(slider3.value()));
+        d3.select("a#setValue3").on("click", () => {
+            slider3.value(new Date(1997, 11, 17));
+            d3.event.preventDefault();
+        });
+    }
+
+    function updateCharts(year){
+        axisData = formatAxisData(data1, year)
+        RadarChart.draw("#chart", axisData)
+        d3.select("#piechart").select("svg").remove();
+        drawChart(data1[year]["pieData"]);
+    }
+
+    function showData() {
+        let aggregatedData = store.aggregatedData
+        console.log(aggregatedData);
+        year = "2002/03"
+        data1 = preprocessData(aggregatedData);
+        // console.log(data1)
+        axisData = formatAxisData(data1, year)
+        RadarChart.draw("#chart", axisData)
+        drawChart(data1[year]["pieData"]);
+    }
+    loadSlider()
+    loadData().then(showData);
     </script>
 </html>
