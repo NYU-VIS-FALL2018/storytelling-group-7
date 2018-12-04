@@ -1,0 +1,28 @@
+#wrapper {
+    width:500px;
+    height:300px;
+    position:relative;
+  }
+  
+  .float {
+    background-color:black;
+    height:300px;
+    margin:0;
+    padding:0;
+    color:white;
+  }
+  
+  .left {
+    float:left;
+    width:400px;
+  }
+  
+  .right {
+    float:right;
+    width:100px;
+  }
+
+  .center {
+      margin: auto;
+      width: 50%;
+  }
