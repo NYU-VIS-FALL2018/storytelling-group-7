@@ -8,9 +8,11 @@
     <body>
         <script src="RadarChart.js"></script>
         <script src="PieChart.js"></script>
+        <script src="lineChart.js"></script>
         <div class="center">
             <h1>15 years of Uprising of Manchester City</h1>
         </div>
+        <div id="linechart"></div>
         <div class="container">
                 <div class="center row align-items-center">
                     <div class="col-sm-2">
@@ -151,6 +153,7 @@
         axisData = formatAxisData(data1, year)
         RadarChart.draw("#chart", axisData)
         drawChart(data1[year]["pieData"]);
+        LineChart()
     }
     loadSlider()
     loadData().then(showData);
