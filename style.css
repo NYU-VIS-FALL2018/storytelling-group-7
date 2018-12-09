@@ -56,3 +56,21 @@
      border-radius: 8px;            
      pointer-events: none;            
   }
+
+.axis {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.tooltip {
+    position: absolute;
+    width: 150px;
+    height: 35px;
+    pointer-events: none;
+}

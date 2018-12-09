@@ -1,5 +1,7 @@
 
-function LineChart(){
+function LineChart(selectedYear){
+  
+  d3.select("#linechart").selectAll("svg").remove();
   
   var store = {}
   var data = [{name : "POINTS", values : []}]
@@ -28,6 +30,7 @@ function LineChart(){
   var parseDate = d3.timeParse("%Y");
   data.forEach(function(d) { 
     d.values.forEach(function(d) {
+      d.year = d.date;
       d.date = parseDate(d.date);
       d.points = +d.points;    
     });
@@ -111,9 +114,11 @@ function LineChart(){
     .data(data).enter()
     .append("g")
     .style("fill", (d, i) => color(i))
+    .attr('class', 'testingCircle')  
     .selectAll("circle")
     .data(d => d.values).enter()
     .append("g")
+    .attr("id", d => d.year)
     .attr("class", "circle")  
     .on("mouseover", function(d) {
         div.transition()        
@@ -129,9 +134,16 @@ function LineChart(){
                .style("opacity", 0);
       })
     .append("circle")
+    .attr("id", d => "circle"+d.year)
     .attr("cx", d => xScale(d.date))
     .attr("cy", d => yScale(d.points))
-    .attr("r", circleRadius)
+    .attr("r", function(d) {
+      if(d.year == selectedYear){
+        return 7;
+      } else{
+        return circleRadius;
+      }
+    })
     .style('opacity', circleOpacity)
     .on("mouseover", function(d) {
           d3.select(this)
@@ -163,7 +175,7 @@ function LineChart(){
     .attr("y", 15)
     .attr("transform", "rotate(-90)")
     .attr("fill", "#000")
-    .text("Total values");
+    .text("Total points");
     }
 
   function loadData() {
