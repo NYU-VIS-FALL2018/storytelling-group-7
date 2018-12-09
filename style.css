@@ -43,7 +43,17 @@
   .title-text {
     font-size: 12px;
   }
+
+  #steamChart{
+      margin-left: 3%;
+      margin-right: 30%;
+      display: block;
+  }
   
+  #slider3{
+    margin-left: 1.5%;
+  }
+
   div.tooltip {    
      position: absolute;            
      text-align: center;            

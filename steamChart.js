@@ -47,7 +47,7 @@ var data3
 
             var series = stack(data);
 
-            var width = 1350,
+            var width = 1150,
                 height = 500;
 
             var x = d3.scaleTime()

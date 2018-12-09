@@ -1,7 +1,7 @@
 function drawChart(data) {
     console.log(data)
-    width = 400
-    height = Math.min(width, 400)
+    width = 300
+    height = Math.min(width, 300)
     
     var pie = d3.pie()
         .padAngle(0.005)
@@ -14,7 +14,7 @@ function drawChart(data) {
 
     var color = d3.scaleOrdinal()
     .domain(data.map(d => d.name))
-    .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse())
+    .range([d3.rgb("#4daf4a"), d3.rgb('#ffff33'), d3.rgb('#e41a1c')])
 
     const svg = d3.select('#piechart')
         .append('svg')

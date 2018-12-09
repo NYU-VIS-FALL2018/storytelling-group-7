@@ -3,6 +3,9 @@
         <title>Storytelling project</title>
         <script src="d3.js"></script>
         <script src="https://unpkg.com/d3-simple-slider/build/d3-simple-slider.js"></script>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -14,19 +17,14 @@
             <h1>15 years of Uprising of Manchester City</h1>
         </div>
         <hr>
-        <h3>Spending on transfers for Top 5 teams</h3>
-        <div id="steamChart"></div>
-        <h3>Points standing for Manchester City</h3>
+        <h2>Spending on transfers for Top 5 teams</h2>
+        <!-- <div class="steamContainer"> -->
+            <!-- <div class="col-sm-2"></div> -->
+            <div id="steamChart"></div>
+        <!-- </div> -->
+        <h2>Points standing for Manchester City</h2>
         <div id="linechart"></div>
-        <div class="container">
-                <div class="center row align-items-center">
-                    <div class="col-sm-2">
-                    </div>
-                    <div class="col-sm">
-                        <div id="slider3"></div>
-                    </div>
-                </div>
-        </div>
+            <div id="slider3"></div>
         <div id="wrapper">
             <div class="left" id="piechart"></div>
             <div class="right" id="chart"></div>
@@ -101,7 +99,6 @@
         var data3 = d3.range(0, 16).map(function (d) {
             return new Date(2002 + d, 15, 3);
         });
-
         var temp = 0;
 
         function test() {
@@ -112,7 +109,7 @@
             .min(d3.min(data3))
             .max(d3.max(data3))
             .step(1000 * 60 * 60 * 24 * 365)
-            .width(600)
+            .width(948)
             .tickFormat(d3.timeFormat('%Y'))
             .tickValues(data3)
             .on('onchange', val => {
@@ -125,7 +122,7 @@
             });
 
         var group3 = d3.select("div#slider3").append("svg")
-            .attr("width", 1000)
+            .attr("width", 1050)
             .attr("height", 100)
             .append("g")
             .attr("transform", "translate(30,30)");
