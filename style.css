@@ -22,9 +22,30 @@
     width:100px;
   }
 
+  .aligncenter {
+    float: left;
+    text-align:center;
+    width:30%;
+ }
+ .alignright {
+    float: left;
+    text-align:center;
+    width:70%;
+ }
+
   .center {
       margin: auto;
-      width: 50%;
+      width: 100%;
+  }
+
+  .headingBar{
+    background-color: skyblue;
+    height: 100px;
+    opacity: 50%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    
   }
 
   .line {
@@ -49,9 +70,17 @@
       margin-right: 30%;
       display: block;
   }
+
+  #flexingDiv{
+    display: flex;
+  }
   
   #slider3{
     margin-left: 1.5%;
+  }
+
+  p.a {
+    font-family: "Comfortaa";
   }
 
   div.tooltip {    

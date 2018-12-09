@@ -93,7 +93,7 @@ var data3
                 .attr("class", "tooltip");
 
             var svg = d3.select("#steamChart").append("svg")
-                .attr("width", width)
+                .attr("width", 1000)
                 .attr("height", 300);
 
             var parseTime = d3.timeParse("%Y")
