@@ -9,21 +9,23 @@
         <script src="RadarChart.js"></script>
         <script src="PieChart.js"></script>
         <script src="lineChart.js"></script>
+        <script src="steamChart.js"></script>
         <div class="center">
             <h1>15 years of Uprising of Manchester City</h1>
         </div>
+        <hr>
+        <h3>Spending on transfers for Top 5 teams</h3>
+        <div id="steamChart"></div>
+        <h3>Points standing for Manchester City</h3>
         <div id="linechart"></div>
         <div class="container">
                 <div class="center row align-items-center">
                     <div class="col-sm-2">
-                        <p>Year:</p>
-                        <p id="value3"></p>
                     </div>
                     <div class="col-sm">
                         <div id="slider3"></div>
                     </div>
                 </div>
-                <a id="setValue3" href="#">Reset</a>
         </div>
         <div id="wrapper">
             <div class="left" id="piechart"></div>
@@ -119,7 +121,7 @@
                 console.log("TEMP:"+temp);
                 year = (temp - 1)+ "/" + (temp.toString().slice(-2))
                 console.log(year)
-                updateCharts(year);
+                updateCharts(temp, year);
             });
 
         var group3 = d3.select("div#slider3").append("svg")
@@ -131,13 +133,18 @@
         group3.call(slider3);
 
         d3.select("p#value3").text(d3.timeFormat('%Y')(slider3.value()));
-        d3.select("a#setValue3").on("click", () => {
-            slider3.value(new Date(1997, 11, 17));
-            d3.event.preventDefault();
-        });
+        
     }
 
-    function updateCharts(year){
+    function highlightYear(year){
+        LineChart(year)
+        // test_select_d3 = d3.selectAll("g").select("#2014")
+        console.log("SELECTED A DIV")
+        // console.log(test_select_d3);
+    }
+
+    function updateCharts(temp, year){
+        // highlightYear(temp)
         axisData = formatAxisData(data1, year)
         RadarChart.draw("#chart", axisData)
         d3.select("#piechart").select("svg").remove();
@@ -153,7 +160,8 @@
         axisData = formatAxisData(data1, year)
         RadarChart.draw("#chart", axisData)
         drawChart(data1[year]["pieData"]);
-        LineChart()
+        LineChart(0)
+        SteamChart()
     }
     loadSlider()
     loadData().then(showData);
