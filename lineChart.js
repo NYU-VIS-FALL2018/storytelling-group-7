@@ -9,7 +9,7 @@ function LineChart(selectedYear){
         store.points.forEach(function (d){
             data[0].values.push(d)
         });
-        var width = 1200;
+        var width = 1000;
   var height = 300;
   var margin = 50;
   var duration = 250;

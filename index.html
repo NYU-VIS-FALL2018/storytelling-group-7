@@ -3,6 +3,9 @@
         <title>Storytelling project</title>
         <script src="d3.js"></script>
         <script src="https://unpkg.com/d3-simple-slider/build/d3-simple-slider.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -10,31 +13,320 @@
         <script src="PieChart.js"></script>
         <script src="lineChart.js"></script>
         <script src="steamChart.js"></script>
-        <div class="center">
-            <h1>15 years of Uprising of Manchester City</h1>
+        <div class="center headingBar">
+            <h1><img src="logo.png" alt="Manchester City" width="80" height="80">    15 years of Uprising of Manchester City</h1>
         </div>
         <hr>
-        <h3>Spending on transfers for Top 5 teams</h3>
+        <div id="flexingDiv">
+        <div style="border-style:ridge">
+        <h2>Spending on transfers for Top 5 teams</h2>
         <div id="steamChart"></div>
-        <h3>Points standing for Manchester City</h3>
+        <h2>Points standing for Manchester City</h2>
         <div id="linechart"></div>
-        <div class="container">
-                <div class="center row align-items-center">
-                    <div class="col-sm-2">
-                    </div>
-                    <div class="col-sm">
-                        <div id="slider3"></div>
-                    </div>
-                </div>
+            <div id="slider3"></div>
+        <h2 style="text-align: center">Season statistics</h2>
+        <div>
+                    <p class="aligncenter">Win-Loss-Draw for Season</p>
+                    <p class="alignright">Performance</p>
         </div>
         <div id="wrapper">
-            <div class="left" id="piechart"></div>
-            <div class="right" id="chart"></div>
+            <div class="left">
+                <div id="piechart">
+                </div>
+            </div>
+            <div class="right">
+                <div id="chart"></div>
+            </div>
         </div>
+    </div>
+    <div>
+        <div class="w3-container" id="intro">
+                <div class="w3-card-4" style="width:90%;">
+                  <header class="w3-container w3-light-blue">
+                    <h1>Intro</h1>
+                  </header>
+                  <div class="w3-container">
+                    <p>Manchester City was a mediocre team till 2002 and they played premier league regularly from 2003. Since then the team’s story goes from a newly promoted team to 3 premier league titles in the last 15 years. The team has gone through a lot of changes during this time. Man City has seen 4 different owners during this period and it has seen a total spending of $1.4 billion dollars in transfers which is the highest spending till date for any team. Man City has truly changed the dynamics of the game.
+                        Goals Scored, Games Won And Points Achieved Have All Trended Sharply Upward Over The Last Decade, Reaching Record-breaking Levels In 2018.</p>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="w3-container" id="facts">
+                    <div class="w3-card-4" style="width:90%;">
+                      <header class="w3-container w3-light-blue">
+                        <h1>Facts</h1>
+                      </header>
+                      <div class="w3-container">
+                        <p>
+                            <ul>
+                                <li>Manchester City has won seven major domestic trophies over the last ten seasons. Its players have won two premier league golden boots and four golden gloves.</li>
+                                <li>Manchester City are the first team in english football history to reach 100 points in the top league. In the premier league era, city are the only club to have scored 100+ goals in two seasons, and they occupy three of the top four slots for highest goal difference.</li>
+                                <li>Manchester City has scored more premier league goals over the last ten seasons than any other club, and is the joint-leading club for top four finishes</li>
+                            </ul>
+                            </p>
+                      </div>
+                      <footer class="w3-container w3-blue">
+                      </footer>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="w3-container" id="story2003">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2002/03</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    The 2002–03 season was Manchester City Football Club's first season back playing in the Premier League again after having been relegated from it at the end of the 2000–01 season.
+                                    It was an emotional farewell to Maine Road as City’s home for 80 years stages its last football match. The club make the move to the impressive, 48,000 capacity, City of Manchester Stadium.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2004" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2003/04</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                After finishing ninth during the club's final season at 80-year-old Maine Road, Manchester City's debut season at the City of Manchester Stadium was a major disappointment. A ninth-place finish had not been good enough to earn City an opportunity to play in the UEFA Cup but the team was rewarded with that opportunity anyway due to being awarded a "Fair Play" slot in the UEFA Cup competition this season.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2005" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2004/05</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    The 2004–05 season was Manchester City Football Club's third consecutive season playing in the Premier League, the top division of English football, and its eighth season since the Premier League was first created. They finished 8th in the premier league.
+the previous season’s top scorer, Nicolas Anelka, packed his bags for Galatasaray.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2006" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2005/06</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    City had burst into 2005-06 with three wins from the opening four games. The points acquired during the Blues’ early-season form was just about enough to ensure Premier League survival and fend-off the horror of a relegation dogfight which, at one point, looked likely to rear its ugly head during the sparse pickings that April and May delivered.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2007" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2006/07</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    On 21 June, the Manchester City board accepted an £81.6 million offer for the club from Thaksin Shinawatra. Sven Goran Eriksson replaces Stuart Pearce as manager, and on 15th December City establish a 'top flight' club-record of nine straight home League wins at the start of the season.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2008" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2007/08</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    <b>Club’s New era begins.</b>
+The Abu Dhabi United Group become the new owners of Manchester City. Former Wales, Barcelona, Bayern Munich and Manchester United star Mark Hughes becomes the new City Manager. The club break the British transfer record for the second time with the £32.5m signing of Robinho from Real Madrid.
+
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2009" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2008/09</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    Roberto Mancini, former manager of Inter Milan replaces Mark Hughes. With a prolific 29 goals in his first season at the club, Carlos Tevez was widely regarded as the club's best and most important player this season. Breaking the established stranglehold of the "Big Four" had been one of the ambitions of the club's new wealthy owners. However, one of the positives of the season's campaign was that the club reached its first major semi-final since 1981 before finally succumbing to the eventual trophy winners, Manchester United. The City team also notched up some highly noteworthy victories over the other "Top Four" incumbents, Chelsea and Arsenal. In fact, Manchester City earned itself the distinction of being the only team to do the "league double" over the team that ultimately achieved the "league and cup double" this season
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2010" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2009/10</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    The Blues enjoy their best ever Premier League campaign in there history, finishing 5th and qualifying for the Europa League in the process, as well as reaching the League Cup semifinals.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2011" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2010/11</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    Manchester City ended their 35-year trophy drought by beating Stoke 1–0 in the FA Cup . City spends £120m on players, including David Silva, Yaya Toure and Mario Balotelli.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2012" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2011/12</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                <b>Won the first Premier League Title! </b>
+                                    Kun Aguero joins the club for reported £38m fee.
+City win the League Championship for the first time in 44 years following a thrilling Premier League campaign. A last-gasp Sergio Aguero goal against QPR secures the title in the most dramatic of fashions at a jubilant Etihad Stadium.
+
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                  <div class="w3-container" id="story2013" style="display:none">
+                        <div class="w3-card-4" style="width:90%;">
+                          <header class="w3-container w3-light-blue">
+                          <h1>2012/13</h1>
+                          </header>
+                          <div class="w3-container">
+                            <p>
+                                    City failed to defend the title. Roberto Mancini is sacked as manager. team finished second in the league and it boasted the stingiest defense in the league.
+                                </p>
+                          </div>
+                          <footer class="w3-container w3-blue">
+                          </footer>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-container" id="story2014" style="display:none">
+                          <div class="w3-card-4" style="width:90%;">
+                            <header class="w3-container w3-light-blue">
+                            <h1>2013/14</h1>
+                            </header>
+                            <div class="w3-container">
+                              <p>
+                                    Manuel Pellegrini's side clinch two trophies in one season for the first time since 1970, lifting the Capital One Cup and Premier League title. A 3-1 win over Sunderland at Wembley in March earns the Club's first League Cup win since 1976 before the Blues go on to win the League Championship by two points.
+                                  </p>
+                            </div>
+                            <footer class="w3-container w3-blue">
+                            </footer>
+                          </div>
+                      </div>
+                      
+                      <div class="w3-container" id="story2015" style="display:none">
+                            <div class="w3-card-4" style="width:90%;">
+                              <header class="w3-container w3-light-blue">
+                              <h1>2014/15</h1>
+                              </header>
+                              <div class="w3-container">
+                                <p>
+                                        The season ended with City showing their undoubted prowess to win the final six games of the season in fine style, cementing their status as Premier League top scorers in the process.
+                                    </p>
+                              </div>
+                              <footer class="w3-container w3-blue">
+                              </footer>
+                            </div>
+                        </div>
+                        
+                        <div class="w3-container" id="story2016" style="display:none">
+                              <div class="w3-card-4" style="width:90%;">
+                                <header class="w3-container w3-light-blue">
+                                <h1>2015/16</h1>
+                                </header>
+                                <div class="w3-container">
+                                  <p>
+                                        What would turn out to be Manuel Pellegrini's final season as Manchester City manager began impressively enough with five straight Premier League victories. City didn't even concede a goal in those games. City finished 4th in the premier league.
+                                      </p>
+                                </div>
+                                <footer class="w3-container w3-blue">
+                                </footer>
+                              </div>
+                          </div>
+                          
+                          <div class="w3-container" id="story2017" style="display:none">
+                                <div class="w3-card-4" style="width:90%;">
+                                  <header class="w3-container w3-light-blue">
+                                  <h1>2016/17</h1>
+                                  </header>
+                                  <div class="w3-container">
+                                    <p>
+                                            City appoints pep Guardiola as the new manager. Ilkay Gundogan, Leroy sane and john stones arrive during another big spending summer window. City finished third in the Premier League.
+
+                                        </p>
+                                  </div>
+                                  <footer class="w3-container w3-blue">
+                                  </footer>
+                                </div>
+                            </div>
+                            
+                            <div class="w3-container" id="story2018" style="display:none">
+                                  <div class="w3-card-4" style="width:90%;">
+                                    <header class="w3-container w3-light-blue">
+                                    <h1>2017/18</h1>
+                                    </header>
+                                    <div class="w3-container">
+                                      <p>
+                                            Kyle walker, Benjamin Mendy, Ederson, Danilo and Bernardo silva aarive for combined fee of £200m.
+                                            City wins Premier League with record number of points(100), wins and goals in the tournament’s History.                                            
+                                          </p>
+                                    </div>
+                                    <footer class="w3-container w3-blue">
+                                    </footer>
+                                  </div>
+                              </div>
+
+    </div>
+    </div>
     </body>
     <script>
     let store = {}
     let data1 = {}
+    let previous_year="2003"
     
     function loadData() {
         return Promise.all([
@@ -101,7 +393,6 @@
         var data3 = d3.range(0, 16).map(function (d) {
             return new Date(2002 + d, 15, 3);
         });
-
         var temp = 0;
 
         function test() {
@@ -112,7 +403,7 @@
             .min(d3.min(data3))
             .max(d3.max(data3))
             .step(1000 * 60 * 60 * 24 * 365)
-            .width(600)
+            .width(948)
             .tickFormat(d3.timeFormat('%Y'))
             .tickValues(data3)
             .on('onchange', val => {
@@ -125,7 +416,7 @@
             });
 
         var group3 = d3.select("div#slider3").append("svg")
-            .attr("width", 1000)
+            .attr("width", 1050)
             .attr("height", 100)
             .append("g")
             .attr("transform", "translate(30,30)");
@@ -143,12 +434,31 @@
         // console.log(test_select_d3);
     }
 
+    function displayBlocks(year){
+      var e = document.getElementById("story"+year);
+      console.log(e);
+      if(e.style.display == 'none'){
+         e.style.display = 'block';
+      }
+    }
+
+    function removeBlock(year){
+      var e = document.getElementById("story"+year);
+      console.log(year)
+      console.log(e)
+      e.style.display = 'none';
+    }
+
     function updateCharts(temp, year){
         // highlightYear(temp)
+        removeBlock(previous_year)
+        displayBlocks(temp);
+        previous_year = temp;
         axisData = formatAxisData(data1, year)
         RadarChart.draw("#chart", axisData)
         d3.select("#piechart").select("svg").remove();
         drawChart(data1[year]["pieData"]);
+
     }
 
     function showData() {
