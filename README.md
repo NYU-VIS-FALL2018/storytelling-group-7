@@ -13,4 +13,4 @@ We are going to share this story via multiple visualizations.
 ## More
 [DEMO](https://nyu-vis-fall2018.github.io/storytelling-group-7/)
 
-[Project Descrioption](project.pdf)
+[Project Description](project.pdf)
