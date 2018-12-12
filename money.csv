@@ -1,12 +1,12 @@
 Year,Team,Value
 2003,Manchester United,40.53
-2004,Manchester United,-2.23
+2004,Manchester United,0
 2005,Manchester United,46.52
 2006,Manchester United,21.51
 2007,Manchester United,8.28
 2008,Manchester United,51.21
 2009,Manchester United,34.02
-2010,Manchester United,-69.36
+2010,Manchester United,0
 2011,Manchester United,10.79
 2012,Manchester United,43.05
 2013,Manchester United,59.02
@@ -17,8 +17,8 @@ Year,Team,Value
 2018,Manchester United,137.61
 2003,Manchester city,38.705
 2004,Manchester city,8.94
-2005,Manchester city,-8.96
-2006,Manchester city,-18.02
+2005,Manchester city,0
+2006,Manchester city,0
 2007,Manchester city,2.07
 2008,Manchester city,60.65
 2009,Manchester city,117.77
@@ -31,19 +31,19 @@ Year,Team,Value
 2016,Manchester city,126.77
 2017,Manchester city,160.33
 2018,Manchester city,203.53
-2003,Chelsea,-1.89
+2003,Chelsea,0
 2004,Chelsea,151.425
 2005,Chelsea,146.79
 2006,Chelsea,51.66
 2007,Chelsea,32.74
 2008,Chelsea,13.81
-2009,Chelsea,-12.65
+2009,Chelsea,0
 2010,Chelsea,23.58
 2011,Chelsea,94.5
 2012,Chelsea,57.65
 2013,Chelsea,75.82
 2014,Chelsea,47.63
-2015,Chelsea,-6.44
+2015,Chelsea,0
 2016,Chelsea,2.71
 2017,Chelsea,21.96
 2018,Chelsea,54
@@ -54,28 +54,28 @@ Year,Team,Value
 2007,Liverpool,72.5
 2008,Liverpool,40.9
 2009,Liverpool,22.95
-2010,Liverpool,-4.95
-2011,Liverpool,-3.58
+2010,Liverpool,0
+2011,Liverpool,0
 2012,Liverpool,39.26
 2013,Liverpool,54.13
 2014,Liverpool,22.95
 2015,Liverpool,46.95
 2016,Liverpool,31.36
-2017,Liverpool,-4.5
-2018,Liverpool,-10.32
+2017,Liverpool,0
+2018,Liverpool,0
 2003,Arsenal,2.25
 2004,Arsenal,26.615
 2005,Arsenal,7.72
 2006,Arsenal,18.9
 2007,Arsenal,1.78
-2008,Arsenal,-23.53
+2008,Arsenal,0
 2009,Arsenal,12.92
-2010,Arsenal,-32.13
+2010,Arsenal,0
 2011,Arsenal,12.06
-2012,Arsenal,-11.53
-2013,Arsenal,-8.87
+2012,Arsenal,0
+2013,Arsenal,0
 2014,Arsenal,33.39
 2015,Arsenal,82.06
 2016,Arsenal,21.6
 2017,Arsenal,86.98
-2018,Arsenal,-3.01
+2018,Arsenal,0

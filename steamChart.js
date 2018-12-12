@@ -72,10 +72,6 @@ var data3
                 .domain(data.map(d => d.key))
                 .range([d3.rgb("#984ea3"), d3.rgb('#e41a1c'), d3.rgb('#377eb8'), d3.rgb('#4daf4a'), d3.rgb('#ff7f00')])
 
-            //     .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
-            // var color = d3.scale.linear().domain([1, length])
-            //     .interpolate(d3.interpolateHcl)
-
             var area = d3.area()
                 .x(function (d) {
                     //console.info('in area function', d);
@@ -94,7 +90,7 @@ var data3
 
             var svg = d3.select("#steamChart").append("svg")
                 .attr("width", 1000)
-                .attr("height", 300);
+                .attr("height", 375);
 
             var parseTime = d3.timeParse("%Y")
 
@@ -132,7 +128,7 @@ var data3
                     tooltip.transition()
                         .duration(700)
                         .style("opacity", 1);
-                    tooltip.html(d.key + " " + money)
+                    tooltip.html(d.key + " £" + money)
                         .style("left", (d3.event.pageX + 5) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
                     //console.log(d.key)
@@ -151,21 +147,31 @@ var data3
                 .attr("transform", "translate(0," + (height) + ")")
                 .call(xAxis);
 
-            //D3 Vertical Legend//////////////////////////
+            //D3 Horizontal Legend//////////////////////////
             var legendVals2 = ["Manchester United", "Manchester city", "Chelsea", "Liverpool", "Arsenal"]
+            var current = 0
+            var previousLength = 0
             var legend3 = svg.selectAll('.legend3')
                 .data(legendVals2)
                 .enter().append('g')
                 .attr("class", "legends3")
                 .attr("transform", function (d, i) {
-                    {
-                        return "translate(0," + i * 20 + ")"
+                    {   
+                        index = parseInt(i)
+                        if(index == 0){
+                            current = 0
+                            previousLength = (9 * parseInt(d.length)) + 30
+                        } else{
+                            current = previousLength
+                            previousLength = (9 * parseInt(d.length)) + current + 30
+                        }
+                        return "translate(" + current + ", 0)"
                     }
                 })
 
             legend3.append('rect')
                 .attr("x", 0)
-                .attr("y", 30)
+                .attr("y", 340)
                 .attr("width", 10)
                 .attr("height", 10)
                 .style("fill", function (d, i) {
@@ -174,8 +180,7 @@ var data3
 
             legend3.append('text')
                 .attr("x", 20)
-                .attr("y", 40)
-                //.attr("dy", ".35em")
+                .attr("y", 350)
                 .text(function (d, i) {
                     return d
                 })

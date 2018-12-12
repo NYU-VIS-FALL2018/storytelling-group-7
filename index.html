@@ -19,7 +19,7 @@
         <hr>
         <div id="flexingDiv">
         <div style="border-style:ridge">
-        <h2>Spending on transfers for Top 5 teams</h2>
+        <h2>Spending on transfers for Top 5 teams<small><small>(in millions)</small></small></h2>
         <div id="steamChart"></div>
         <h2>Points standing for Manchester City</h2>
         <div id="linechart"></div>
@@ -319,6 +319,57 @@ City win the League Championship for the first time in 44 years following a thri
                                     </footer>
                                   </div>
                               </div>
+                              <br>
+                              <div class="w3-container" id="image2008" style="display:none">
+                                    <div class="w3-card-4" style="width:90%;">
+                                        <header class="w3-container w3-light-blue">
+                                        <h1>New Owner</h1>
+                                        </header>
+                                        <div class="w3-container">
+                                            <img src="man-city-owner-saudi.jpg" alt="Saudi prince- new owner" style="width:500px;height:300px;">
+                                        </div>
+                                    </div>
+                                </div>
+                              <div class="w3-container" id="image2011" style="display:none">
+                                    <div class="w3-card-4" style="width:90%;">
+                                        <header class="w3-container w3-light-blue">
+                                        <h1>FA Cup 11' Winners</h1>
+                                        </header>
+                                        <div class="w3-container">
+                                            <img src="2011_FA_Cup.jpg" alt="FA Cup Winners for 2010/11 season" style="width:500px;height:300px;">
+                                        </div>
+                                    </div>
+                                </div>
+                              <div class="w3-container" id="image2012" style="display:none">
+                                    <div class="w3-card-4" style="width:90%;">
+                                        <header class="w3-container w3-light-blue">
+                                        <h1>EPL 12' Winners</h1>
+                                        </header>
+                                        <div class="w3-container">
+                                            <img src="2012_epl.jpg" alt="EPL Winners for 2011/12 season" style="width:500px;height:300px;">
+                                        </div>
+                                    </div>
+                                </div>
+                              <div class="w3-container" id="image2014" style="display:none">
+                                    <div class="w3-card-4" style="width:90%;">
+                                        <header class="w3-container w3-light-blue">
+                                        <h1>EPL 14' Winners</h1>
+                                        </header>
+                                        <div class="w3-container">
+                                            <img src="2014_epl.jpg" alt="EPL Winners for 2013/14 season" style="width:500px;height:300px;">
+                                        </div>
+                                    </div>
+                                </div>
+                              <div class="w3-container" id="image2018" style="display:none">
+                                    <div class="w3-card-4" style="width:90%;">
+                                        <header class="w3-container w3-light-blue">
+                                        <h1>EPL 18' Winners</h1>
+                                        </header>
+                                        <div class="w3-container">
+                                            <img src="2018_epl.jpg" alt="EPL Winners for 2017/18 season" style="width:500px;height:300px;">
+                                        </div>
+                                    </div>
+                                </div>
 
     </div>
     </div>
@@ -436,7 +487,13 @@ City win the League Championship for the first time in 44 years following a thri
 
     function displayBlocks(year){
       var e = document.getElementById("story"+year);
-      console.log(e);
+
+      if(year == "2008" || year == "2011" || year == "2012" || year == "2014" || year == "2018"){
+        var d = document.getElementById("image"+year);
+        if(d.style.display == 'none'){
+         d.style.display = 'block';
+        }
+      }
       if(e.style.display == 'none'){
          e.style.display = 'block';
       }
@@ -444,9 +501,12 @@ City win the League Championship for the first time in 44 years following a thri
 
     function removeBlock(year){
       var e = document.getElementById("story"+year);
-      console.log(year)
-      console.log(e)
+      if(year == "2008" || year == "2011" || year == "2012" || year == "2014" || year == "2018"){    
+        var d = document.getElementById("image"+year);
+        d.style.display = 'none';
+      }
       e.style.display = 'none';
+      
     }
 
     function updateCharts(temp, year){
