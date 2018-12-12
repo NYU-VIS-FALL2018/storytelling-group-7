@@ -14,7 +14,7 @@ function drawChart(data) {
 
     var color = d3.scaleOrdinal()
     .domain(data.map(d => d.name))
-    .range([d3.rgb("#4daf4a"), d3.rgb('#ffff33'), d3.rgb('#e41a1c')])
+    .range([d3.rgb("#a6cee3"), d3.rgb('#1f78b4'), d3.rgb('#b2df8a')])
 
     const svg = d3.select('#piechart')
         .append('svg')
