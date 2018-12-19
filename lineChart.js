@@ -46,6 +46,9 @@ function LineChart(selectedYear){
     .range([height-margin, 0]);
   
   var color = d3.scaleOrdinal(d3.schemeCategory10);
+  var newColor = d3.scaleOrdinal()
+        .domain([1, 2, 3, 4])
+        .range(['ca0020', 'f4a582', '80cdc1', '0571b0']);
 
   var div = d3.select("body").append("div")    
    .attr("class", "tooltip")                
@@ -75,9 +78,8 @@ function LineChart(selectedYear){
         svg.append("text")
           .attr("class", "title-text")
           .style("fill", color(i))        
-          .text(d.name)
           .attr("text-anchor", "middle")
-          .attr("x", (width-margin)/2)
+          .attr("x", (2*(width-margin)/3))
           .attr("y", 5);
       })
     .on("mouseout", function(d) {
@@ -113,12 +115,17 @@ function LineChart(selectedYear){
   lines.selectAll("circle-group")
     .data(data).enter()
     .append("g")
-    .style("fill", (d, i) => color(i))
     .attr('class', 'testingCircle')  
     .selectAll("circle")
     .data(d => d.values).enter()
     .append("g")
     .attr("id", d => d.year)
+    // .style("fill", function(d) { 
+    //   console.log(d);
+    //   console.log(parseInt(d.position)/4)
+    //   return newColor(parseInt(d.position)/4); })
+    .style("fill", d => newColor(Math.ceil(parseInt(d.position)/5)))
+    // .style("fill", d => newColor(1))
     .attr("class", "circle")  
     .on("mouseover", function(d) {
         div.transition()        
@@ -158,7 +165,6 @@ function LineChart(selectedYear){
             .attr("r", circleRadius);  
         });
   
-  
   /* Add Axis into SVG */
   var xAxis = d3.axisBottom(xScale).ticks(5);
   var yAxis = d3.axisLeft(yScale).ticks(5);
@@ -176,7 +182,49 @@ function LineChart(selectedYear){
     .attr("transform", "rotate(-90)")
     .attr("fill", "#000")
     .text("Total points");
-    }
+  
+    //D3 Horizontal Legend//////////////////////////
+    var legendVals2 = ["1st - 5th", "6th - 10th", "11th - 15th", "16th - 20th"]
+    var current = 0
+    var previousLength = 0
+    var legend3 = svg.selectAll('.legend3')
+        .data(legendVals2)
+        .enter().append('g')
+        .attr("class", "legends3")
+        .attr("transform", function (d, i) {
+            {   
+                index = parseInt(i)
+                if(index == 0){
+                    current = 0
+                    previousLength = (9 * parseInt(d.length)) + 30
+                } else{
+                    current = previousLength
+                    previousLength = (9 * parseInt(d.length)) + current + 30
+                }
+                return "translate(" + current + ", 0)"
+            }
+        })
+
+    legend3.append('rect')
+        .attr("x", 40)
+        .attr("y", 0)
+        .attr("width", 10)
+        .attr("height", 10)
+        .style("fill", function (d, i) {
+            return newColor(i+1)
+        })
+
+    legend3.append('text')
+        .attr("x", 60)
+        .attr("y", 10)
+        .text(function (d, i) {
+            return d
+        })
+        .attr("class", "textselected")
+        .style("text-anchor", "start")
+        .style("font-size", 15)
+  
+  }
 
   function loadData() {
         return Promise.all([
